@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --sourceMap --validate --debug",
+    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --sourceMap --validate --optimize",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "preact": "^8.4.2",
     "wasmboy": "^0.5.0"
+  },
+  "devDependencies": {
+    "assemblyscript": "AssemblyScript/assemblyscript"
   }
 }
